@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessTracker.AddWorkoutPage"
+             Title="Add Workout">
+
+    <StackLayout Padding="20" Spacing="15">
+
+        <Label Text="Date:" />
+        <DatePicker Date="{Binding Date}" />
+
+        <Entry Placeholder="Short Description" Text="{Binding Description}" HeightRequest="50" />
+
+        <ListView x:Name="listView" Margin="20"
+                  ItemSelected="OnExerciseLogSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding ExerciseDetails}" Detail="{Binding Duration, StringFormat='{0} minutes'}" Height="35"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
+            <Button Text="Add Exercise Log" Clicked="OnAddExerciseButtonClicked" IsVisible="{Binding ID}"/>
+            <Button Text="Save" Clicked="OnSaveClicked" />
+            <Button Text="Delete" Clicked="OnDeleteClicked" IsVisible="{Binding ID}" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

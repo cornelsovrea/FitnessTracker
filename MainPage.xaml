@@ -2,20 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FitnessTracker.MainPage"
-             Title="Exercise Tracker">
+             Title="Exercise List">
 
-    <StackLayout Padding="10">
-        <Button Text="Add Exercise" Clicked="OnAddExerciseClicked" HorizontalOptions="Center" />
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Exercise" Clicked="OnAddExerciseClicked" />
+    </ContentPage.ToolbarItems>
 
-        <ListView x:Name="exerciseListView"
+    <ListView x:Name="exerciseListView"
                   Margin="10"
                   ItemSelected="OnExerciseSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Name}" Detail="{Binding Duration, StringFormat='{0} minutes'}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Name}" Detail="{Binding Category}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 
 </ContentPage>

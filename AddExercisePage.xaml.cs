@@ -4,13 +4,9 @@ namespace FitnessTracker
 {
     public partial class AddExercisePage : ContentPage
     {
-        public AddExercisePage(Exercise exercise = null)
+        public AddExercisePage()
         {
             InitializeComponent();
-            BindingContext = exercise ?? new Exercise
-            {
-                Date = DateTime.Now
-            };
         }
 
         private async void OnSaveClicked(object sender, EventArgs e)

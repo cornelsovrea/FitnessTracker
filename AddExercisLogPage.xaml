@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FitnessTracker.AddExercisePage"
-             Title="Add/Edit Exercise">
+             x:Class="FitnessTracker.AddExerciseLogPage"
+             Title="Add/Edit Exercise Log">
 
     <StackLayout Padding="20" Spacing="15">
-        <Label Text="Exercise Name:" />
-        <Entry Placeholder="Enter exercise name" Text="{Binding Name}" />
+        <Picker x:Name="ExercisePicker" Title="Enter Exercise Name"/>
 
-        <Label Text="Category:" />
-        <Entry Placeholder="Enter the type of exercise" Text="{Binding Category}" />
+        <Label Text="Duration (minutes):" />
+        <Entry Placeholder="Enter duration in minutes" Text="{Binding Duration}" Keyboard="Numeric" />
 
-        <Entry Placeholder="Describe the exercise" Text="{Binding Description}" HeightRequest="50" />
+        <Label Text="Calories Burned (optional):" />
+        <Entry Placeholder="Enter calories burned" Text="{Binding CaloriesBurned}" Keyboard="Numeric" />
 
         <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
             <Button Text="Save" Clicked="OnSaveClicked" />

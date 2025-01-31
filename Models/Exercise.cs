@@ -5,15 +5,17 @@ namespace FitnessTracker.Models
     public class Exercise
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
-        [MaxLength(100)]
+
+        [MaxLength(100), Unique]
         public string Name { get; set; }
 
-        public int Duration { get; set; }
+        [MaxLength(100)]
+        public string Category { get; set; }
 
-        public DateTime Date { get; set; }
+        [MaxLength(500)]
+        public string Description { get; set; }
 
-        public int CaloriesBurned { get; set; }
     }
 }
